@@ -30,6 +30,8 @@ Scores and flags are research aids. Check every record against its source and da
 | `docs/SECURITY_AND_LEGAL.md` | Security, privacy, legal |
 | `docs/DEPLOYMENT.md` | Ubuntu server, backups, alerts |
 | `docs/TESTING.md` | Test plan and labelled samples |
+| `docs/ROADMAP.md` | Phases and completion conditions |
+| `docs/IMPLEMENTATION_PLAN.md` | Per-phase tasks, files, tests, and first task |
 | `docs/TOKEN_OPTIMIZATION.md` | Cutting LLM, OCR, and fetch costs |
 | `docs/DECISIONS.md` | Owner decisions log |
 | `docs/OPEN_QUESTIONS.md` | Unresolved points |
