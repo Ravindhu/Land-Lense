@@ -1,0 +1,31 @@
+# Project settings. Values marked TODO(verify) are placeholders until the owner confirms them
+# (see docs/OPEN_QUESTIONS.md). Secrets never go here; they live in .env.
+
+crs: EPSG:32643            # UTM zone 43N, metres
+
+approval_stage: "3D"       # docs/RULES.md section 1 (owner to confirm, OPEN_QUESTIONS 2)
+
+target_zone:
+  default_row_width_m: null   # TODO(verify): set per section from documents; null means "not set, no targets"
+  margin_ft: 20               # owner round 3 and 4
+  sides: both
+
+snap_tolerance_m: 50          # TODO(verify): set from real data (OPEN_QUESTIONS 9)
+
+ocr:
+  engine: gemini              # gemini | tesseract (chosen by labelled-sample score, DECISIONS.md)
+  model: gemini-2.5-flash     # TODO(verify): confirm current model name before use
+  prompt_version: v1
+  timeout_s: 120
+
+llm_monthly_budget_usd: 0     # 0 = no cap set yet (TODO(verify))
+llm_alert_fraction: 0.8
+
+collectors:
+  central_egazette:
+    enabled: false            # stays off until terms_cleared is true
+    terms_cleared: false      # owner sets true after reading the site terms (docs/SOURCES.md)
+    min_interval_s: 5
+  tngis_cadastral:
+    enabled: false
+    terms_cleared: false
