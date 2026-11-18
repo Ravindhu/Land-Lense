@@ -1,0 +1,18 @@
+[Unit]
+Description=TN Highway Intel dashboard (Streamlit, localhost only)
+After=network-online.target
+
+[Service]
+Type=simple
+User=tnintel
+WorkingDirectory=/opt/tn-highway-intel
+EnvironmentFile=/opt/tn-highway-intel/.env
+ExecStart=/opt/tn-highway-intel/.venv/bin/streamlit run src/tn_highway_intel/ui/map_dashboard.py --server.address 127.0.0.1 --server.port 8501 --server.headless true
+Restart=on-failure
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadOnlyPaths=/opt/tn-highway-intel/storage
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

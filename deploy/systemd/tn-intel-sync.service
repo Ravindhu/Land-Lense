@@ -1,0 +1,13 @@
+[Unit]
+Description=TN Highway Intel daily sync
+
+[Service]
+Type=oneshot
+User=tnintel
+WorkingDirectory=/opt/tn-highway-intel
+EnvironmentFile=/opt/tn-highway-intel/.env
+ExecStart=/opt/tn-highway-intel/.venv/bin/python -m tn_highway_intel.services.daily_sync
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/tn-highway-intel/storage
+PrivateTmp=true

@@ -1,0 +1,14 @@
+# Public entry point. Only the dashboard is exposed; the webhook stays on localhost.
+# Replace the host name with your own domain. Caddy obtains the TLS certificate.
+dashboard.example.com {
+	reverse_proxy 127.0.0.1:8501
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "no-referrer"
+		-Server
+	}
+	log {
+		output discard
+	}
+}

@@ -1,0 +1,18 @@
+[Unit]
+Description=TN Highway Intel webhook (localhost only)
+After=network-online.target
+
+[Service]
+Type=simple
+User=tnintel
+WorkingDirectory=/opt/tn-highway-intel
+EnvironmentFile=/opt/tn-highway-intel/.env
+ExecStart=/opt/tn-highway-intel/.venv/bin/uvicorn tn_highway_intel.services.webhook:app --host 127.0.0.1 --port 8001
+Restart=on-failure
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/tn-highway-intel/storage
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

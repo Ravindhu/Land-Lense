@@ -86,7 +86,7 @@ No other indexes for the MVP. Add more only after a measured slow query.
 - Writes happen only through `patta_lookup.py` or the owner form, and each write creates an audit entry.
 
 ## 5. Migrations
-- Use a numbered migration folder: `storage/migrations/0001_init.sql`, `0002_...sql`.
+- Use a numbered migration folder: `migrations/ (repo root)0001_init.sql`, `0002_...sql`.
 - Track the applied version in `PRAGMA user_version`.
 - Each migration runs in a transaction. Failure rolls back and stops the sync with an alert.
 - Migrations are forward-only in production. A down-migration needs a backup and an owner decision.

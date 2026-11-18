@@ -1,0 +1,18 @@
+[Unit]
+Description=TN Highway Intel WhatsApp listener (read-only, allowlisted groups)
+After=network-online.target tn-intel-webhook.service
+
+[Service]
+Type=simple
+User=tnintel
+WorkingDirectory=/opt/tn-highway-intel/whatsapp_listener
+EnvironmentFile=/opt/tn-highway-intel/.env
+ExecStart=/usr/bin/node index.js
+Restart=on-failure
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/tn-highway-intel/whatsapp_listener/auth_session /opt/tn-highway-intel/storage
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

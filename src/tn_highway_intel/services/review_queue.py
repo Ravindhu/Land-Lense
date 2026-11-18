@@ -16,6 +16,7 @@ ALLOWED_REASONS = frozenset(
         "far_from_alignment",
         "circular_pending",
         "missing_source",
+        "missing_row_width",
     }
 )
 

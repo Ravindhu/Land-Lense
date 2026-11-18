@@ -1,0 +1,13 @@
+[Unit]
+Description=TN Highway Intel backup and restore test
+
+[Service]
+Type=oneshot
+User=tnintel
+WorkingDirectory=/opt/tn-highway-intel
+EnvironmentFile=/opt/tn-highway-intel/.env
+ExecStart=/opt/tn-highway-intel/.venv/bin/python -c "from pathlib import Path; from tn_highway_intel.domain.settings import project_root, storage_dir; from tn_highway_intel.services.backup import create_backup; create_backup(storage_dir(project_root()), project_root() / 'backups')"
+ExecStartPost=/opt/tn-highway-intel/scripts/restore_test.sh
+NoNewPrivileges=true
+ReadWritePaths=/opt/tn-highway-intel/backups /opt/tn-highway-intel/storage
+PrivateTmp=true
