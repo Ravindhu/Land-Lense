@@ -31,7 +31,10 @@ A single-user, self-hosted tracker for Tamil Nadu highway land acquisition. It p
 | What to build and why | `docs/PRD.md` |
 | Target zone, stages, review rules | `docs/RULES.md` |
 | Module list and data flow | `docs/ARCHITECTURE.md` |
+| Visual design and UX | `docs/DESIGN.md` |
+| Storage, owner schema, encryption | `docs/DATABASE.md` |
 | Record shapes | `docs/DATA_MODEL.md` |
+| Endpoints and integrations | `docs/API.md` |
 | Source list and terms status | `docs/SOURCES.md` |
 | Tests | `docs/TESTING.md` |
 | Server and backups | `docs/DEPLOYMENT.md` |

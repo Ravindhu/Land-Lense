@@ -22,7 +22,10 @@ Scores and flags are research aids. Check every record against its source and da
 | `docs/PRD.md` | Product requirements |
 | `docs/RULES.md` | Target zone, stages, review rules |
 | `docs/ARCHITECTURE.md` | Modules and data flow |
+| `docs/DESIGN.md` | Visual design, components, states, accessibility |
+| `docs/DATABASE.md` | Storage technology, owner database schema, encryption, migrations, backups |
 | `docs/DATA_MODEL.md` | Record shapes |
+| `docs/API.md` | Webhook endpoints, outbound integrations, environment variables |
 | `docs/SOURCES.md` | Data sources and terms status |
 | `docs/SECURITY_AND_LEGAL.md` | Security, privacy, legal |
 | `docs/DEPLOYMENT.md` | Ubuntu server, backups, alerts |
