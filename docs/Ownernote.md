@@ -48,3 +48,22 @@ Goal: Filter out "bad" adjacent plots (like those blocked by high flyover walls)
 		• Spots to Avoid: Plots directly alongside elevated Flyover Retaining Walls (RE Walls) or deep cuttings where road visibility and access are cut off.
 	4. Final Ground Check: Take the printed FMB sketch and Technical Schedule extract to the site with a private licensed surveyor to confirm that the physical NHAI boundary stones match your target plot's remaining unacquired area before paying an advance.
 If you upload your Gazette PDF or Technical Schedules PDF here, I can run Step 2 and Step 4 right now and build the target survey number spreadsheet for your agent.
+
+
+
+
+Open-Source Indian Geospatial Data Repos (For Step 3 Mapping)
+
+Instead of building village and highway layers from scratch, you can pull ready-made GeoJSON and Shapefile boundaries from these open-source repositories:
+• datta07/INDIAN-SHAPEFILES: Contains hierarchical administrative shapefiles and GeoJSON files for Indian states, districts, and sub-districts (taluks).
+• ramSeraph/indian_admin_boundaries: Publishes cleaned administrative boundary releases sourced from portals like Tamil Nadu GIS (TNGIS) in GeoJSON/PBF formats.
+• India Open Geospatial Data (india-geodata): Aggregates 60+ open geospatial datasets, including village boundaries, National Highway road networks, and Survey of India reference layers.
+• datameet/Municipal_Spatial_Data: Maintained by the DataMeet India community, offering spatial boundary files for cities and towns (including Coimbatore and other Tamil Nadu hubs) viewable in QGIS.
+
+2. Open-Source Tools to Build the Pipeline Yourself
+
+If you want a developer to automate Steps 2 and 3 locally on your machine, combine these three open-source Python tools:
+• PDF Gazette Table Extraction (pdfplumber or camelot): Use pdfplumber or Tabula to parse the multi-page Section 3A/3D e-Gazette PDFs and Technical Schedules tables into clean CSV files without manual copy-pasting.
+• GIS Overlay & Spatial Filtering (QGIS or GeoPandas): Load your village cadastral layer (exported from TNGIS or digitized from your village map) into QGIS (free, open-source desktop GIS). Join your extracted Gazette CSV by Survey_Number to automatically highlight the acquired highway ribbon and run a spatial "touches/buffer" query to list every adjacent unacquired plot.
+• AI Document & Web Parsing (Crawl4AI or Docling): Open-source document parsers like IBM's Docling convert complex scanned Indian Gazette PDFs (including Tamil/English bilingual tables) into structured JSON/Markdown for local LLM analysis.
+
