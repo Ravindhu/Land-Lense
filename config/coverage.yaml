@@ -1,0 +1,27 @@
+# Coverage scope (owner decision, 18 Nov 2026). Only these districts are in scope for now.
+districts:
+  - Erode
+  - Namakkal
+  - Salem
+  - Coimbatore
+  - Tiruppur
+  - Karur
+  - Dindigul
+  - Dharmapuri
+
+# One colour per stage. Stage keys are fixed; labels are shown in the legend.
+# NH Act (central) stages come from MoRTH notices. TN Highways Act (state) stages come from TN Gazette Ex VI 1 notices.
+stages:
+  nh_3a:               {label: "NH Act 3A (preliminary)",             colour: "#1f77b4"}
+  nh_3c:               {label: "NH Act 3C (consent / hearing)",       colour: "#17becf"}
+  nh_3d:               {label: "NH Act 3D (final declaration)",       colour: "#2ca02c"}
+  nh_3g_3h:            {label: "NH Act 3G / 3H (possession, award)",   colour: "#006400"}
+  tn_15_1_initial:     {label: "TN Highways Act s.15(1) initial",      colour: "#ff7f0e"}
+  tn_15_1_final:       {label: "TN Highways Act s.15(1) final",        colour: "#d62728"}
+  tn_15_1_unlabelled:  {label: "TN Highways Act s.15(1), stage not stated", colour: "#7f7f7f"}
+
+# Road network colours (highway class from OSM-style "highway" tag or the "ref" prefix).
+roads:
+  national:  {label: "National highway (NH)",  colour: "#000000", weight: 4}
+  state:     {label: "State highway (SH)",     colour: "#8c564b", weight: 3}
+  other:     {label: "Other road",             colour: "#c7c7c7", weight: 1}
