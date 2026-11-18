@@ -59,7 +59,7 @@ Parcels are keyed by `district, taluk, village, survey_no`. They are not stored 
 
 ### 2.3 Constraints
 - `owner.owner_source` must be non-empty. Enforced by `CHECK (length(owner_source) > 0)`.
-- `owner.pan_masked` must match the masked pattern: `CHECK (pan_masked IS NULL OR pan_masked GLOB '[A-Z][A-Z][A-Z][A-Z][A-Z]****[A-Z]')`.
+- `owner.pan_masked` must match the masked pattern. Checked as length 10 with `****` at positions 6 to 9 (`CHECK (pan_masked IS NULL OR (length(pan_masked) = 10 AND substr(pan_masked, 6, 4) = '****'))`); the letter pattern is checked in Python (`MASKED_PAN_RE`). GLOB is not used because `*` is a wildcard there, not a literal asterisk.
 - `owner_parcel` unique on `(owner_id, district, taluk, village, survey_no)`.
 - Foreign keys enabled on every connection: `PRAGMA foreign_keys = ON`.
 

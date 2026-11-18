@@ -102,3 +102,15 @@ def require_env(name: str) -> str:
 def get_env(name: str) -> Optional[str]:
     value = os.environ.get(name, "").strip()
     return value or None
+
+
+def storage_dir(root: Optional[Path] = None) -> Path:
+    """Runtime data directory: TN_INTEL_STORAGE if set, else <root>/storage. Never committed."""
+    override = os.environ.get("TN_INTEL_STORAGE")
+    if override:
+        return Path(override).resolve()
+    return (root or project_root()) / "storage"
+
+
+def migrations_dir(root: Optional[Path] = None) -> Path:
+    return (root or project_root()) / "migrations"
